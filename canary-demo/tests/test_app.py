@@ -16,7 +16,7 @@ class TestCanaryApp(unittest.TestCase):
         for _ in range(10):
             response = requests.get(self.base_url, headers={"Host": "canary-demo.local"})
             if "Hello from version v2" in response.text:
-                self.assertIn("background-color: green", response.text)
+                self.assertIn("background-color: yellow", response.text)
                 return  # Test passes if we hit the canary
         self.fail("Did not receive canary version after 10 attempts")
 
